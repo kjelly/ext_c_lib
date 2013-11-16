@@ -1,0 +1,818 @@
+./gshadow/sgetsgent.c:      new_buf = realloc (buffer, buffer_size);
+./gshadow/fgetsgent.c:      new_buf = realloc (buffer, buffer_size);
+./ChangeLog.5:	(realloc): Use LOG2_MIN_SIZE.
+./ChangeLog.5:	(realloc): Don't bother allocating a new block if the
+./ChangeLog.5:	(more_memory, malloc, free, realloc): Use above macros, and add
+./ChangeLog.5: 	of using realloc to grow the array in the first pass.  _dl_map_object
+./ChangeLog.5:	may do some mallocs that break our stream of reallocs, and the minimal
+./ChangeLog.5:	realloc can't handle that.
+./ChangeLog.5:	* elf/dl-minimal.c (realloc): Support realloc of the block most
+./ChangeLog.5:	* malloc/mcheck.c (freehook, reallochook): Handle null pointer args.
+./ChangeLog.5:	* malloc/realloc.c (_realloc_internal): In case of growing large
+./ChangeLog.5:	* malloc/malloc.c (morecore): Don't attempt recursive realloc of info
+./ChangeLog.5:	table when _heaplimit==0 during realloc growing large block.
+./ChangeLog.5:	(setenv): Use realloc on LAST_ENVIRON instead of always copying.
+./ChangeLog.5:	* malloc/realloc.c (realloc): Call __malloc_initialize if
+./ChangeLog.5:	* sysdeps/mach/hurd/dl-sysdep.c (malloc, free, realloc,
+./ChangeLog.5:	* posix/glob.c (glob): Use realloc to extend strings for GLOB_MARK
+./ChangeLog.5:	* malloc/realloc.c (__malloc_safe_bcopy): Undefine before defining.
+./ChangeLog.5:	* malloc/realloc.c [emacs] (__malloc_safe_bcopy): Just #define to
+./ChangeLog.5:	* malloc/realloc.c: Likewise.
+./ChangeLog.5:	* malloc/realloc.c [! emacs] (safe_bcopy): Renamed to
+./ChangeLog.5:	* malloc/realloc.c: Call _free_internal instead of free.
+./ChangeLog.5: 	_realloc_internal.  Don't account for the additional new blocks of
+./ChangeLog.5:	* malloc/realloc.c (_realloc_internal): Call _malloc_internal in
+./ChangeLog.5:	* malloc/malloc.h (_malloc_internal, _realloc_internal): Declare these.
+./ChangeLog.5:	* malloc/realloc.c (_realloc_internal): Renamed from realloc;
+./ChangeLog.5: 	don't use __realloc_hook.
+./ChangeLog.5:	(realloc): New function; call __realloc_hook ?: _realloc_internal.
+./ChangeLog.5: 	with _realloc_internal.  When that fails and we get new core, set
+./setjmp/bug269-setjmp.c:      int a[n_x];		/* reallocate stack space */
+./setjmp/bug269-setjmp.c:	int a[n_x];		/* reallocate stack space */
+./hesiod/nss_hesiod/hesiod-grp.c:		  newgroups = realloc (groups, newsize * sizeof (*groups));
+./sunrpc/rpc_cout.c:		  sizestr = realloc (sizestr, strlen (sizestr) +
+./sunrpc/svc.c:      new_svc_pollfd = (struct pollfd *) realloc (svc_pollfd,
+./sunrpc/svc_run.c:	    = realloc (my_pollfd, sizeof (struct pollfd) * max_pollfd);
+./posix/execle.c:	  const char **nptr = realloc (argv == initial_argv ? NULL : argv,
+./posix/spawn_faction_init.c:__posix_spawn_file_actions_realloc (posix_spawn_file_actions_t *file_actions)
+./posix/spawn_faction_init.c:  void *newmem = realloc (file_actions->__actions,
+./posix/spawn_int.h:extern int __posix_spawn_file_actions_realloc (posix_spawn_file_actions_t *
+./posix/tst-pcre.c:	      pattern = realloc (pattern, p - line);
+./posix/tst-pcre.c:	      string = realloc (string, len - 3);
+./posix/regex_internal.c:  ret = re_string_realloc_buffers (pstr, init_buf_len);
+./posix/regex_internal.c:      ret = re_string_realloc_buffers (pstr, len + 1);
+./posix/regex_internal.c:	      ret = re_string_realloc_buffers (pstr, pstr->bufs_len * 2);
+./posix/regex_internal.c:re_string_realloc_buffers (re_string_t *pstr, int new_buf_len)
+./posix/regex_internal.c:      /* Avoid overflow in realloc.  */
+./posix/regex_internal.c:      new_wcs = re_realloc (pstr->wcs, wint_t, new_buf_len);
+./posix/regex_internal.c:	  int *new_offsets = re_realloc (pstr->offsets, int, new_buf_len);
+./posix/regex_internal.c:      unsigned char *new_mbs = re_realloc (pstr->mbs, unsigned char,
+./posix/regex_internal.c:      int *new_elems = re_realloc (dest->elems, int, new_alloc);
+./posix/regex_internal.c:      int *new_buffer = re_realloc (dest->elems, int, new_alloc);
+./posix/regex_internal.c:      new_elems = re_realloc (set->elems, int, set->alloc);
+./posix/regex_internal.c:      new_elems = re_realloc (set->elems, int, set->alloc);
+./posix/regex_internal.c:      /* Avoid overflows in realloc.  */
+./posix/regex_internal.c:      new_nodes = re_realloc (dfa->nodes, re_token_t, new_nodes_alloc);
+./posix/regex_internal.c:      new_nexts = re_realloc (dfa->nexts, int, new_nodes_alloc);
+./posix/regex_internal.c:      new_indices = re_realloc (dfa->org_indices, int, new_nodes_alloc);
+./posix/regex_internal.c:      new_edests = re_realloc (dfa->edests, re_node_set, new_nodes_alloc);
+./posix/regex_internal.c:      new_eclosures = re_realloc (dfa->eclosures, re_node_set, new_nodes_alloc);
+./posix/regex_internal.c:      re_dfastate_t **new_array = re_realloc (spot->array, re_dfastate_t *,
+./posix/glob.c:			  char *newp = realloc (malloc_pwtmpbuf
+./posix/glob.c:		    char *newp = realloc (malloc_pwtmpbuf ? pwtmpbuf : NULL,
+./posix/glob.c:	    = (char **) realloc (pglob->gl_pathv,
+./posix/glob.c:	      new_gl_pathv = (char **) realloc (pglob->gl_pathv,
+./posix/glob.c:	    char *new = realloc (pglob->gl_pathv[i], len);
+./posix/glob.c:	= (char **) realloc (pglob->gl_pathv,
+./posix/regexec.c:	 allocated, reallocate them.  If we need fewer, just
+./posix/regexec.c:	  regoff_t *new_start = re_realloc (regs->start, regoff_t, need_regs);
+./posix/regexec.c:	  new_end = re_realloc (regs->end, regoff_t, need_regs);
+./posix/regexec.c:      new_array = realloc (fs->stack, (sizeof (struct re_fail_stack_ent_t)
+./posix/regexec.c:	  /* Reload buf, since the preceding call might have reallocated
+./posix/regexec.c:      new_array = re_realloc (path->array, re_dfastate_t *, path->alloc);
+./posix/regexec.c:  ret = re_string_realloc_buffers (pstr,
+./posix/regexec.c:      re_dfastate_t **new_array = re_realloc (mctx->state_log, re_dfastate_t *,
+./posix/regexec.c:      new_entry = re_realloc (mctx->bkref_ents, struct re_backref_cache_entry,
+./posix/regexec.c:      re_sub_match_top_t **new_array = re_realloc (mctx->sub_tops,
+./posix/regexec.c:      re_sub_match_last_t **new_array = re_realloc (subtop->lasts,
+./posix/wordexp.c:      buffer = (char *) realloc (buffer, 1 + *maxlen);
+./posix/wordexp.c:      buffer = realloc (old_buffer, 1 + *maxlen);
+./posix/wordexp.c:  new_wordv = realloc (pwordexp->we_wordv, sizeof (char *) * num_p);
+./posix/regcomp.c:      /* If zero allocated, but buffer is non-null, try to realloc
+./posix/regcomp.c:      dfa = re_realloc (preg->buffer, re_dfa_t, 1);
+./posix/regcomp.c:	    /* There is not enough space, need realloc.  */
+./posix/regcomp.c:	    /* Use realloc since mbcset->range_starts and mbcset->range_ends
+./posix/regcomp.c:	    new_array_start = re_realloc (mbcset->range_starts, wchar_t,
+./posix/regcomp.c:	    new_array_end = re_realloc (mbcset->range_ends, wchar_t,
+./posix/regcomp.c:	      /* There is not enough space, need realloc.  */
+./posix/regcomp.c:	      new_array_start = re_realloc (mbcset->range_starts, uint32_t,
+./posix/regcomp.c:	      new_array_end = re_realloc (mbcset->range_ends, uint32_t,
+./posix/regcomp.c:	      /* Not enough, realloc it.  */
+./posix/regcomp.c:	      /* Use realloc since mbcset->coll_syms is NULL
+./posix/regcomp.c:	      int32_t *new_coll_syms = re_realloc (mbcset->coll_syms, int32_t,
+./posix/regcomp.c:		  /* Not enough, realloc it.  */
+./posix/regcomp.c:		  /* Use realloc since array is NULL if *alloc == 0.  */
+./posix/regcomp.c:		  new_mbchars = re_realloc (mbcset->mbchars, wchar_t,
+./posix/regcomp.c:	  /* Not enough, realloc it.  */
+./posix/regcomp.c:	  /* Use realloc since the array is NULL if *alloc == 0.  */
+./posix/regcomp.c:	  int32_t *new_equiv_classes = re_realloc (mbcset->equiv_classes,
+./posix/regcomp.c:      /* Not enough, realloc it.  */
+./posix/regcomp.c:      /* Use realloc since array is NULL if *alloc == 0.  */
+./posix/regcomp.c:      wctype_t *new_char_classes = re_realloc (mbcset->char_classes, wctype_t,
+./posix/execl.c:	  const char **nptr = realloc (argv == initial_argv ? NULL : argv,
+./posix/execlp.c:	  const char **nptr = realloc (argv == initial_argv ? NULL : argv,
+./posix/regex_internal.h:static reg_errcode_t re_string_realloc_buffers (re_string_t *pstr,
+./posix/regex_internal.h:#define re_realloc(p,t,n) ((t *) realloc (p, (n) * sizeof (t)))
+./posix/annexc.c:  "mbstowcs", "mbtowc", "qsort", "rand", "rand_r", "realloc", "srand",
+./posix/annexc.c:	  result = realloc (result, result_max * sizeof (char **));
+./posix/annexc.c:      result = realloc (result, result_max * sizeof (char **));
+./posix/tst-fnmatch.c:      resbuf = (char *) realloc (resbuf, 2 * len + 1);
+./posix/spawn_faction_addclose.c:      && __posix_spawn_file_actions_realloc (file_actions) != 0)
+./posix/spawn_faction_addopen.c:      && __posix_spawn_file_actions_realloc (file_actions) != 0)
+./posix/spawn_faction_adddup2.c:      && __posix_spawn_file_actions_realloc (file_actions) != 0)
+./posix/regex.h:     If REGS_REALLOCATE, reallocate space if necessary.
+./intl/dcigettext.c:      /* Protect against reallocation of the table.  */
+./intl/dcigettext.c:	    realloc (domain->conversions,
+./intl/dcigettext.c:	       reallocate domain->conversions because we pass convert = 0.  */
+./intl/dcigettext.c:		      newmem = (transmem_block_t *) realloc (transmem_list,
+./intl/localealias.c:		  char *new_pool = (char *) realloc (string_space, new_size);
+./intl/localealias.c:  new_map = (struct alias_map *) realloc (map, (new_size
+./intl/plural.c:       to reallocate them elsewhere.  */
+./intl/plural.c:	/* Give user a chance to reallocate the stack.  Use copies of
+./ChangeLog.6:	* malloc/realloc.c: Likewise.
+./ChangeLog.6:	* hurd/alloc-fd.c (_hurd_alloc_fd): If realloc fails, bother to
+./ChangeLog.6:	* malloc/realloc.c: Likewise.
+./ChangeLog.6:	* malloc/realloc.c: Likewise.
+./ChangeLog.6:	* malloc/realloc.c: Likewise.
+./ChangeLog.6:	* malloc/realloc.c (realloc): Likewise.
+./ChangeLog.6:	use void * for my_realloc; include <malloc.h> for alloca.
+./time/era.c:	      (struct era_entry *) realloc (data->eras,
+./time/tst-strftime.c:	  buf = (char *) realloc (buf, size);
+./misc/error.c:	      wchar_t *p = (wchar_t *) realloc (wmessage,
+./misc/err.c:	  wformat = (wchar_t *) realloc (wformat, len * sizeof (wchar_t));
+./timezone/ialloc.c:	if ((result = realloc(old, oldsize + newsize + 1)) != NULL)
+./timezone/zic.c:#define erealloc(ptr, size)	memcheck(realloc(ptr, size))
+./timezone/zic.c:	rules = erealloc(rules, (nrules + 1) * sizeof *rules);
+./timezone/zic.c:		buf = erealloc(buf, 132 + strlen(TZDEFAULT));
+./timezone/zic.c:		buf = erealloc(buf, 132 + strlen(TZDEFRULES));
+./timezone/zic.c:				buf = erealloc(buf,
+./timezone/zic.c:	zones = erealloc(zones, (nzones + 1) * sizeof *zones);
+./timezone/zic.c:	links = erealloc(links, (nlinks + 1) * sizeof *links);
+./timezone/zic.c:	fullname = erealloc(fullname,
+./timezone/zic.c:	buf = erealloc(buf, 132 + strlen(yitcommand) + strlen(type));
+./libio/memstream.c:  *mp->bufloc = (char *) realloc (fp->_IO_write_base,
+./libio/wmemstream.c:  *mp->bufloc = (wchar_t *) realloc (fp->_wide_data->_IO_write_base,
+./libio/iogetdelim.c:   NULL), pointing to *N characters of space.  It is realloc'ed as
+./libio/iogetdelim.c:	  new_lineptr = (char *) realloc (*lineptr, needed);
+./libio/stdio.h:   NULL), pointing to *N characters of space.  It is realloc'd as
+./libio/strfile.h:/* dynamic: set when the array object is allocated (or reallocated)  as
+./libio/strfile.h:   be altered, reallocated, or freed. */
+./libio/vasprintf.c:  /* Only use realloc if the size we need is of the same (binary)
+./libio/vasprintf.c:    *result_ptr = (char *) realloc (sf._sbf._f._IO_buf_base, needed);
+./libio/vasprintf.c:	*result_ptr = (char *) realloc (sf._sbf._f._IO_buf_base, needed);
+./CANCEL-FCT-WAIVE:__libc_realloc
+./CANCEL-FCT-WAIVE:realloc
+./malloc/tst-mcheck.c:  p = realloc (p, 0);
+./malloc/tst-mcheck.c:    merror ("realloc (p, 0) failed.");
+./malloc/tst-mcheck.c:  p = realloc (p, 0);
+./malloc/tst-mcheck.c:    merror ("realloc (p, 0) failed.");
+./malloc/tst-mcheck.c:  if (realloc (p, -256) != NULL)
+./malloc/tst-mcheck.c:    merror ("realloc (p, -256) succeeded.");
+./malloc/tst-mcheck.c:  if (realloc (p, -1) != NULL)
+./malloc/tst-mcheck.c:    merror ("realloc (p, -1) succeeded.");
+./malloc/hooks.c:realloc_hook_ini(void* ptr, size_t sz, const void *caller)
+./malloc/hooks.c:  __realloc_hook = NULL;
+./malloc/hooks.c:  return __libc_realloc(ptr, sz);
+./malloc/hooks.c:   Otherwise the heap would be corrupted by calls to free and realloc.  If
+./malloc/hooks.c:  __realloc_hook = realloc_check;
+./malloc/hooks.c:/* Convert a pointer to be free()d or realloc()ed to a valid chunk
+./malloc/hooks.c:realloc_check(void* oldmem, size_t bytes, const void *caller)
+./malloc/hooks.c:    malloc_printerr(check_action, "realloc(): invalid pointer", oldmem);
+./malloc/hooks.c:      newmem = _int_realloc(&main_arena, oldp, oldsize, nb);
+./malloc/hooks.c:      __realloc_hook = NULL;
+./malloc/memusage.c:static void *(*reallocp) (void *, size_t);
+./malloc/memusage.c:  idx_realloc,
+./malloc/memusage.c:static memusage_cntr_t realloc_free;
+./malloc/memusage.c:  reallocp = (void *(*) (void *, size_t)) dlsym (RTLD_NEXT, "realloc");
+./malloc/memusage.c:/* `realloc' replacement.  We keep track of the memory usage if this is the
+./malloc/memusage.c:realloc (void *old, size_t len)
+./malloc/memusage.c:    return (*reallocp) (old, len);
+./malloc/memusage.c:	return (*reallocp) (old, len);
+./malloc/memusage.c:  catomic_increment (&calls[idx_realloc]);
+./malloc/memusage.c:      /* Keep track of total memory consumption for `realloc'.  */
+./malloc/memusage.c:      catomic_add (&total[idx_realloc], len - old_len);
+./malloc/memusage.c:      catomic_increment (&realloc_free);
+./malloc/memusage.c:  result = (struct header *) (*reallocp) (real, len + sizeof (struct header));
+./malloc/memusage.c:      catomic_increment (&failed[idx_realloc]);
+./malloc/memusage.c:\e[00;34mrealloc|\e[0m %10lu   %12llu   %s%12lu\e[00;00m  (nomove:%ld, dec:%ld, free:%ld)\n\
+./malloc/memusage.c:	   (unsigned long int) calls[idx_realloc],
+./malloc/memusage.c:	   (unsigned long long int) total[idx_realloc],
+./malloc/memusage.c:	   failed[idx_realloc] ? "\e[01;41m" : "",
+./malloc/memusage.c:	   (unsigned long int) failed[idx_realloc],
+./malloc/memusage.c:	   (unsigned long int) realloc_free,
+./malloc/tst-mallocstate.c:      p1 = realloc (p1, i*4 + 4);
+./malloc/tst-mallocstate.c:	merror ("realloc (i*4) failed.");
+./malloc/tst-mallocstate.c:  p1 = realloc (p1, 40);
+./malloc/tst-malloc.c:  /* realloc (p, 0) == free (p).  */
+./malloc/tst-malloc.c:  p = realloc (p, 0);
+./malloc/tst-malloc.c:    merror ("realloc (p, 0) failed.");
+./malloc/tst-malloc.c:  p = realloc (p, 0);
+./malloc/tst-malloc.c:    merror ("realloc (p, 0) failed.");
+./malloc/malloc.c:  This is a version (aka ptmalloc2) of malloc/free/realloc written by
+./malloc/malloc.c:    realloc(void* p, size_t n);
+./malloc/malloc.c:  realloc with zero bytes should be the same as a call to free.
+./malloc/malloc.c:  returns a unique pointer for malloc(0), so does realloc(p, 0).
+./malloc/malloc.c:     increments the break value, the contents of the reallocated space
+./malloc/malloc.c:  Define HAVE_MREMAP to make realloc() use mremap() to re-allocate
+./malloc/malloc.c:  allocated using malloc or a related routine such as realloc.
+./malloc/malloc.c:  realloc(void* p, size_t n)
+./malloc/malloc.c:  If p is null, realloc is equivalent to malloc.
+./malloc/malloc.c:  If space is not available, realloc returns null, errno is set (if on
+./malloc/malloc.c:  REALLOC_ZERO_BYTES_FREES is set, realloc with a size argument of
+./malloc/malloc.c:  be reallocated using malloc-copy-free sequences unless
+./malloc/malloc.c:  The old unix realloc convention of allowing the last-free'd chunk
+./malloc/malloc.c:  to be used as an argument to realloc is not supported.
+./malloc/malloc.c:void*  __libc_realloc(void*, size_t);
+./malloc/malloc.c:libc_hidden_proto (__libc_realloc)
+./malloc/malloc.c:  number of bytes allocated via malloc (or realloc, etc) but not yet
+./malloc/malloc.c:static void*  _int_realloc(mstate, mchunkptr, INTERNAL_SIZE_T,
+./malloc/malloc.c:static void*   realloc_check(void* oldmem, size_t bytes,
+./malloc/malloc.c:static void* realloc_hook_ini (void* ptr, size_t sz,
+./malloc/malloc.c:void *weak_variable (*__realloc_hook)
+./malloc/malloc.c:     = realloc_hook_ini;
+./malloc/malloc.c:	  address argument for later munmap in free() and realloc().
+./malloc/malloc.c:__libc_realloc(void* oldmem, size_t bytes)
+./malloc/malloc.c:    force_reg (__realloc_hook);
+./malloc/malloc.c:  /* realloc of null is supposed to be same as malloc */
+./malloc/malloc.c:      malloc_printerr (check_action, "realloc(): invalid pointer", oldmem);
+./malloc/malloc.c:  newp = _int_realloc(ar_ptr, oldp, oldsize, nb);
+./malloc/malloc.c:libc_hidden_def (__libc_realloc)
+./malloc/malloc.c:  ------------------------------ realloc ------------------------------
+./malloc/malloc.c:_int_realloc(mstate av, mchunkptr oldp, INTERNAL_SIZE_T oldsize,
+./malloc/malloc.c:      errstr = "realloc(): invalid old size";
+./malloc/malloc.c:      errstr = "realloc(): invalid next size";
+./malloc/malloc.c:strong_alias (__libc_realloc, __realloc) strong_alias (__libc_realloc, realloc)
+./malloc/mtrace.pl:	    # Ignore failed realloc for now.
+./malloc/mcheck.c:static __ptr_t (*old_realloc_hook) (__ptr_t ptr, size_t size,
+./malloc/mcheck.c:reallochook (__ptr_t ptr, size_t size, const __ptr_t caller)
+./malloc/mcheck.c:  __realloc_hook = old_realloc_hook;
+./malloc/mcheck.c:  if (old_realloc_hook != NULL)
+./malloc/mcheck.c:    hdr = (struct hdr *) (*old_realloc_hook) ((__ptr_t) hdr,
+./malloc/mcheck.c:    hdr = (struct hdr *) realloc ((__ptr_t) hdr,
+./malloc/mcheck.c:  __realloc_hook = reallochook;
+./malloc/mcheck.c:      old_realloc_hook = __realloc_hook;
+./malloc/mcheck.c:      __realloc_hook = reallochook;
+./malloc/mcheck.h:   when you free or reallocate a block.  */
+./malloc/mtrace.c:static __ptr_t (*tr_old_realloc_hook) (__ptr_t ptr, size_t size,
+./malloc/mtrace.c:/* This function is called when the block being alloc'd, realloc'd, or
+./malloc/mtrace.c:static __ptr_t tr_reallochook (__ptr_t, size_t, const __ptr_t)
+./malloc/mtrace.c:tr_reallochook (ptr, size, caller)
+./malloc/mtrace.c:  __realloc_hook = tr_old_realloc_hook;
+./malloc/mtrace.c:  if (tr_old_realloc_hook != NULL)
+./malloc/mtrace.c:    hdr = (__ptr_t) (*tr_old_realloc_hook) (ptr, size, caller);
+./malloc/mtrace.c:    hdr = (__ptr_t) realloc (ptr, size);
+./malloc/mtrace.c:  __realloc_hook = tr_reallochook;
+./malloc/mtrace.c:	/* Failed realloc.  */
+./malloc/mtrace.c:	  tr_old_realloc_hook = __realloc_hook;
+./malloc/mtrace.c:	  __realloc_hook = tr_reallochook;
+./malloc/mtrace.c:  __realloc_hook = tr_old_realloc_hook;
+./malloc/obstack.h:buffer, realloc()ating the buffer every time you try to read a symbol
+./malloc/malloc.h:/* __attribute_malloc__ is not used, because if realloc returns
+./malloc/malloc.h:extern void *realloc (void *__ptr, size_t __size)
+./malloc/malloc.h:/* Free a block allocated by `malloc', `realloc' or `calloc'.  */
+./malloc/malloc.h:extern void *(*__MALLOC_HOOK_VOLATILE __realloc_hook) (void *__ptr,
+./malloc/Versions:    __libc_mallopt; __libc_memalign; __libc_pvalloc; __libc_realloc;
+./malloc/Versions:    __malloc_initialize_hook; __free_hook; __malloc_hook; __realloc_hook;
+./malloc/Versions:    realloc;
+./manual/memory.texi:preallocated and preloaded by exec and the process can extend or shrink
+./manual/memory.texi:* Changing Block Size::         Use @code{realloc} to make a block
+./manual/memory.texi:discover you want it to be bigger, use @code{realloc} (@pxref{Changing
+./manual/memory.texi:You can make the block longer by calling @code{realloc}.  This function
+./manual/memory.texi:@deftypefun {void *} realloc (void *@var{ptr}, size_t @var{newsize})
+./manual/memory.texi:The @code{realloc} function changes the size of the block whose address is
+./manual/memory.texi:Since the space after the end of the block may be in use, @code{realloc}
+./manual/memory.texi:space is available.  The value of @code{realloc} is the new address of the
+./manual/memory.texi:block.  If the block needs to be moved, @code{realloc} copies the old
+./manual/memory.texi:If you pass a null pointer for @var{ptr}, @code{realloc} behaves just
+./manual/memory.texi:behavior, and will probably crash when @code{realloc} is passed a null
+./manual/memory.texi:Like @code{malloc}, @code{realloc} may return a null pointer if no
+./manual/memory.texi:when @code{realloc} fails, because the application program cannot continue
+./manual/memory.texi:conventionally called @code{xrealloc}, that takes care of the error message
+./manual/memory.texi:xrealloc (void *ptr, size_t size)
+./manual/memory.texi:  register void *value = realloc (ptr, size);
+./manual/memory.texi:You can also use @code{realloc} to make a block smaller.  The reason you
+./manual/memory.texi:If the new size you specify is the same as the old size, @code{realloc}
+./manual/memory.texi:@code{malloc}/@code{realloc}/@code{free} outside the C library, it
+./manual/memory.texi:The address of a block returned by @code{malloc} or @code{realloc} in
+./manual/memory.texi:or @code{realloc}.  @code{mprobe} returns a value that says what
+./manual/memory.texi:@code{malloc}, @code{realloc} and @code{free} is to set the environment
+./manual/memory.texi:@code{realloc}, and @code{free} by specifying appropriate hook
+./manual/memory.texi:@defvar __realloc_hook
+./manual/memory.texi:The value of this variable is a pointer to function that @code{realloc}
+./manual/memory.texi:like @code{realloc}; that is, like:
+./manual/memory.texi:the @code{realloc} function was called.  This value allows you to trace the
+./manual/memory.texi:assume here that @code{realloc} and @code{memalign} are not used in our
+./manual/memory.texi:@item void *realloc (void *@var{addr}, size_t @var{size})
+./manual/memory.texi:@item void *(*__realloc_hook) (void *@var{ptr}, size_t @var{size}, const void *@var{caller})
+./manual/memory.texi:A pointer to a function that @code{realloc} uses whenever it is called.
+./manual/memory.texi:handlers for the functions @code{malloc}, @code{realloc}, and
+./manual/memory.texi:Otherwise it deinstalls the handlers for @code{malloc}, @code{realloc},
+./manual/memory.texi:never changes unless you use @code{realloc} to change its size.  Thus,
+./manual/memory.texi:or @code{realloc} can move the relocatable blocks.
+./manual/contrib.texi:functions @code{malloc}, @code{realloc} and @code{free} and related
+./manual/contrib.texi:functions @code{malloc}, @code{realloc} and @code{free} and related
+./manual/socket.texi:      tmphstbuf = realloc (tmphstbuf, hstbuflen);
+./manual/filesys.texi:      buffer = (char *) xrealloc (buffer, size);
+./manual/string.texi:              newp = (char *) realloc (result, allocated);
+./manual/string.texi:      newp = realloc (result, wp - result);
+./manual/string.texi:          transformed = (char *) xrealloc (transformed,
+./manual/string.texi:          transformed = (wchar_t *) xrealloc (transformed,
+./manual/string.texi:@code{realloc} call.
+./manual/string.texi:The argz functions use @code{malloc}/@code{realloc} to allocate/grow
+./manual/string.texi:@var{buf} to the argz vector @code{*@var{argz}}, reallocating
+./manual/string.texi:remove this entry and reallocate @code{*@var{argz}}, modifying
+./manual/string.texi:destructive argz functions usually reallocate their argz argument,
+./manual/string.texi:element pointed to by @var{before}, reallocating @code{*@var{argz}} and
+./manual/string.texi:@var{with}, reallocating @var{argz} as necessary.  If
+./manual/users.texi:      groups = xrealloc (ngroups * sizeof (gid_t));
+./manual/charset.texi:  buf = xrealloc (buf, (size + 1) * sizeof (wchar_t));
+./manual/stdio.texi:@code{getline} makes the buffer bigger using @code{realloc}, storing the
+./manual/stdio.texi:      buffer = (char *) xrealloc (buffer, size);
+./manual/stdio.texi:clean up using @code{free} or @code{realloc}.  @xref{Unconstrained Allocation}.
+./ChangeLog.4:	* stdio/memstream.c (enlarge_buffer): If realloc fails, just set
+./ChangeLog.4:	* malloc/realloc.c: Likewise.
+./ChangeLog.4:	(freehook, mallochook, reallochook): Use different flood bytes to
+./ChangeLog.4:	* malloc/mcheck.c (reallochook): Fixed typo.
+./ChangeLog.4:	* malloc/mtrace.c (tr_mallochook, tr_reallochook): Don't assume
+./ChangeLog.4:	(freehook, mallochook, reallochook): Initialize new space and
+./ChangeLog.4:	* hurd/hurdsock.c (_hurd_socket_server): If realloc fails, don't
+./debug/vasprintf_chk.c:  /* Only use realloc if the size we need is of the same (binary)
+./debug/vasprintf_chk.c:    *result_ptr = (char *) realloc (sf._sbf._f._IO_buf_base, needed);
+./debug/vasprintf_chk.c:	*result_ptr = (char *) realloc (sf._sbf._f._IO_buf_base, needed);
+./ChangeLog.8:	(realloc_check): Likewise.
+./ChangeLog.8:	(malloc_check, free_check, realloc_check, memalign_check): Use
+./ChangeLog.8:	alloc_size.  Pass return value of getcwd syscall to realloc.
+./ChangeLog.8:	* posix/wordexp.c (parse_glob): Use w_addstr instead of realloc
+./ChangeLog.8:	directly (the code using realloc was buggy).
+./csu/libc-tls.c:   preallocates some surplus bytes in the static TLS area.  */
+./ChangeLog.7:	* nss/getXXbyYY.c: Set buffer to NULL if realloc fails so that possible
+./ChangeLog.7:	* malloc/malloc.c (chunk_free, chunk_alloc, chunk_realloc, chunk_align,
+./ChangeLog.7:	Change malloc, free, realloc, and memalign hooks for glibc to take
+./ChangeLog.7:	(__malloc_initialize_hook, __free_hook, __malloc_hook, __realloc_hook,
+./ChangeLog.1:	Remove extra decls of free, qsort, malloc, and realloc.
+./ChangeLog.1:	* posix/glob.c (my_realloc): Test only __GNU_LIBRARY__.  Can't trust
+./ChangeLog.1:	malloc/mtrace.c, malloc/realloc.c, malloc/valloc.c: Deansideclized;
+./ChangeLog.1:	* malloc/mtrace.c (old_{free,malloc,realloc}_hook): Renamed to tr_&
+./ChangeLog.1:	* malloc/realloc.c, malloc/malloc.c: Don't #define memcpy or memset
+./ChangeLog.1:	* malloc/realloc.c (MIN): Renamed to min.  Conflicted with HPUX
+./ChangeLog.1:	Don't bang *LINEPTR to NULL if realloc fails.
+./ChangeLog.11:	in map[] if realloc() changed the values.
+./ChangeLog.11:	(__posix_spawn_file_actions_realloc): Fix second realloc argument.
+./ChangeLog.11:	reallocation logic for MALLOC (%as, %aS formats).
+./ChangeLog.11:	(mALLOc, rEALLOc, chunk_realloc, mEMALIGn, cALLOc,
+./ChangeLog.11:	chunk2mem_check, realloc_check, malloc_starter, malloc_atfork):
+./ChangeLog.11:	(chunk_realloc): Adjust oldsize once.
+./ChangeLog.11:	program's data space, reallocate only the space that was just
+./ChangeLog.11:	* intl/dcigettext.c (_nl_find_msg): Correct reallocation of
+./ChangeLog.11:	reallocating.
+./ChangeLog.16:	(public_rEALLOc, _int_free, _int_realloc): Use it.
+./ChangeLog.16:	realloc fails.
+./ChangeLog.16:	* nis/nis_table.c (nis_list): Optimize freeing and reallocation of
+./ChangeLog.16:	* malloc/malloc.c (_int_realloc): Make error message clearer.
+./ChangeLog.16:	* posix/regex_internal.c (re_string_realloc_buffers):
+./ChangeLog.16:	* nis/nis_table.c: Fix realloc handling.
+./ChangeLog.16:	(realloc_check): Likewise.  Fail if bytes == -1.  If bytes == 0 and
+./ChangeLog.16:	oldmem != NULL, call free_check and return NULL.  If reallocating
+./ChangeLog.16:	* stdlib/stdlib.h: Make realloc with
+./ChangeLog.10:	* stdlib/stdlib.h: Make malloc, calloc, realloc, and valloc with
+./ChangeLog.10:	* malloc/malloc.h: Make malloc, calloc, realloc, valloc, pvalloc,
+./ChangeLog.10:	(mALLOc, chunk_realloc, mEMALIGn, cALLOc) [USE_ARENAS]: try to
+./ChangeLog.10:	doesn't clear the contents of memory that is reallocated after
+./ChangeLog.10:	* sysdeps/mach/hurd/brk.c (_hurd_set_brk): Deallocate and reallocate
+./ChangeLog.10:	argument in realloc call.
+./ChangeLog.10:	* nis/nis_subr.c: Check for realloc result.
+./ChangeLog.10:	* nis/nis_table.c (__create_ib_request): Always use realloc.
+./ChangeLog.14:	Avoid memory leak if realloc fails.
+./ChangeLog.14:	(push_fail_stack): Change fs->alloc only after successful realloc.
+./ChangeLog.14:	re_string_realloc_buffers, build_wcs_buffer,
+./ChangeLog.14:	(re_string_realloc_buffers): Reallocate offsets if not NULL.
+./ChangeLog.14:	Use mbs_allocated instead of MBS_ALLOCATED.  Don't reallocate
+./ChangeLog.14:	* posix/regex_internal.c (re_dfa_add_node): Add BE, reallocation
+./ChangeLog.14:	(re_string_realloc_buffers): Use pstr->mb_cur_max instead of
+./ChangeLog.14:	size_t overflow when reallocating storage.
+./ChangeLog.14:	values != -1 for _LIBC.  Use extend_alloca to reallocate alloca'ed
+./ChangeLog.14:	* nscd/hstcache.c: Use extend_alloca to reallocate alloca'd buffer.
+./ChangeLog.14:	(mallochook, reallochook): Set them up.
+./ChangeLog.14:	(mcheck, reallochook): Set __memalign_hook to memalignhook.
+./ChangeLog.14:	* posix/regex_internal.c (re_string_realloc_buffers): Don't edit
+./ChangeLog.14:	pointers in case that realloc failed.
+./ChangeLog.14:	(push_fail_stack): Don't edit pointers in case that realloc failed.
+./bits/resource.h:       a page from the list of pages awaiting reallocation.  */
+./nscd/servicescache.c:	  buffer = (char *) realloc (use_malloc ? buffer : NULL, buflen);
+./nscd/grpcache.c:	  buffer = (char *) realloc (use_malloc ? buffer : NULL, buflen);
+./nscd/hstcache.c:	  buffer = (char *) realloc (use_malloc ? buffer : NULL, buflen);
+./nscd/pwdcache.c:	  buffer = (char *) realloc (use_malloc ? buffer : NULL, buflen);
+./nscd/netgroupcache.c:					char *newbuf = xrealloc (use_malloc
+./nscd/netgroupcache.c:			    char *newbuf = xrealloc (use_malloc
+./nscd/nscd_initgroups.c:	  gid_t *newp = realloc (*groupsp,
+./string/argz.h:/* Replace any occurrences of the string STR in ARGZ with WITH, reallocating
+./string/envz.c:      char *new_envz = realloc (*envz, new_envz_len);
+./string/argz-insert.c:    char *new_argz = realloc (*argz, new_argz_len);
+./string/argz-append.c:  char *new_argz = realloc (*argz, new_argz_len);
+./string/argz-addsep.c:      *argz = (char *) realloc (*argz, *argz_len + nlen);
+./string/argz-replace.c:/* Append BUF, of length BUF_LEN to *TO, of length *TO_LEN, reallocating and
+./string/argz-replace.c:  char *new_to = realloc (*to, new_len + 1);
+./string/argz-replace.c:/* Replace any occurrences of the string STR in ARGZ with WITH, reallocating
+./resource/sys/vtimes.h:     a page from the list of pages awaiting reallocation.  */
+./login/login.c:	new_buf = realloc (buf, buf_len);
+./login/openpty.c:	new_buf = realloc (buf, buf_len);
+./elf/dl-object.c:	      new_origin = (char *) realloc (origin, len);
+./elf/dl-open.c:     in an realloc() call.  Therefore we allocate a completely new
+./elf/ldconfig.c:	  path = xrealloc (path, 2);
+./elf/ldconfig.c:      path = xrealloc (path, 2);
+./elf/dl-minimal.c:extern void * weak_function realloc (void *ptr, size_t n);
+./elf/dl-minimal.c:realloc (void *ptr, size_t n)
+./elf/dl-lookup.c:	     `realloc'.  */
+./elf/rtld.c:     avoid the need for reallocation.  */
+./elf/rtld.c:     so it knows not to pass this dtv to the normal realloc.  */
+./elf/chroot_canon.c:	      new_rpath = (char *) xrealloc (rpath, new_size);
+./elf/Versions:    __libc_memalign; calloc; free; malloc; realloc;
+./elf/dl-tls.c:		      newp = realloc (&dtv[-1],
+./elf/pldd.c:      auxv = xrealloc (auxv, auxv_size);
+./resolv/gai_misc.c:	    realloc (pool, new_max_size * sizeof (struct requestlist *));
+./resolv/res_hconf.c:	  ifaddrs = realloc (ifaddrs, new_num_ifs * sizeof (ifaddrs[0]));
+./resolv/res_query.c:	  /* __libc_res_nsend might have reallocated the buffer.  */
+./stdio-common/xbug.c:    b->buff = (char *)realloc(b->buff, 2*b->room*(sizeof(char)));
+./stdio-common/vfscanf.c:	      wp = realloc (use_malloc ? wp : NULL, newsize);		    \
+./stdio-common/vfscanf.c:		      newstr = (char *) realloc (*strptr, strsize * 2);
+./stdio-common/vfscanf.c:			  newstr = (char *) realloc (*strptr,
+./stdio-common/vfscanf.c:			  str = (char *) realloc (*strptr, newsize);
+./stdio-common/vfscanf.c:			      str = (char *) realloc (*strptr, strsize + 1);
+./stdio-common/vfscanf.c:		      char *cp = (char *) realloc (*strptr, str - *strptr);
+./stdio-common/vfscanf.c:		      wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:			  wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:		    wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:			wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:		  wchar_t *cp = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:			newstr = (char *) realloc (*strptr, strsize * 2);
+./stdio-common/vfscanf.c:			    newstr = (char *) realloc (*strptr,
+./stdio-common/vfscanf.c:			  str = (char *) realloc (*strptr, 2 * strsize);
+./stdio-common/vfscanf.c:			      str = (char *) realloc (*strptr, strsize + 1);
+./stdio-common/vfscanf.c:		      newstr = (char *) realloc (*strptr, strleng + n + 1);
+./stdio-common/vfscanf.c:		      char *cp = (char *) realloc (*strptr, str - *strptr);
+./stdio-common/vfscanf.c:			wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:			    wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:		      wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:			  wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:		    wchar_t *cp = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:			  wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:				realloc (*strptr, (strsize + 1)
+./stdio-common/vfscanf.c:			  wstr = (wchar_t *) realloc (*strptr,
+./stdio-common/vfscanf.c:				realloc (*strptr, ((strsize + 1)
+./stdio-common/vfscanf.c:			realloc (*strptr, ((wstr - (wchar_t *) *strptr)
+./stdio-common/vfscanf.c:			  newstr = (char *) realloc (*strptr, 2 * strsize);
+./stdio-common/vfscanf.c:			      newstr = (char *) realloc (*strptr,
+./stdio-common/vfscanf.c:			  str = (char *) realloc (*strptr, newsize);
+./stdio-common/vfscanf.c:		      newstr = (char *) realloc (*strptr, strleng + n + 1);
+./stdio-common/vfscanf.c:		      char *cp = (char *) realloc (*strptr, str - *strptr);
+./nss/getnssent.c:      new_buf = realloc (*buffer, *buffer_size);
+./nss/digits_dots.c:	  new_buf = (char *) realloc (*buffer, *buffer_size);
+./nss/nss_files/files-initgroups.c:	      void *newbuf = realloc (buffer_use_malloc ? buffer : NULL,
+./nss/nss_files/files-initgroups.c:		  gid_t *newgroups = realloc (groups,
+./nss/nss_files/files-netgrp.c:      result->data = realloc (result->data, result->data_size);		      \
+./nss/nss_files/files-hosts.c:		  char *newp = realloc (tmp_buffer, newsize);		      \
+./nss/test-netdb.c:      name = realloc (name, namelen);
+./nss/nss_db/db-initgroups.c:		      gid_t *newgroups = realloc (groups,
+./nss/getXXbyYY.c:      new_buf = (char *) realloc (buffer, buffer_size);
+./nss/bug-erange.c:      tmphstbuf = realloc (tmphstbuf, hstbuflen);
+./libidn/stringprep.c:      uint32_t *newp = realloc (ucs4, maxucs4len * sizeof (uint32_t));
+./libidn/iconvme.c:	    newdest = (char *) realloc (dest, newsize);
+./libidn/idna.c:	newp = realloc (p, len);
+./libidn/idna.c:/* ToUnicode().  May realloc() utf8in. */
+./libidn/idna.c:      char *newp = realloc (utf8in, utf8len + addlen);
+./libidn/idna.c:	  char *newp = realloc (out, strlen (out) + 1 + strlen (buf) + 1);
+./libidn/idna.c:	  uint32_t *newp = realloc (out,
+./argp/argp-fmtstream.c:	  if (new_size < old_size || ! (new_buf = realloc (fs->buf, new_size)))
+./po/lt.po:#~ msgid "xrealloc: cannot allocate %lu bytes"
+./po/lt.po:#~ msgstr "xrealloc: nepavyko išskirti %lu baitų"
+./po/lt.po:#~ msgid "xrealloc: %s:%d: cannot allocate %lu bytes"
+./po/lt.po:#~ msgstr "xrealloc: %s:%d: nepavyko išskirti %lu baitų"
+./sysdeps/posix/getcwd.c:extern char *malloc (), *realloc ();
+./sysdeps/posix/getcwd.c:		  new = realloc ((__ptr_t) dotlist, dotsize * 2 + 1);
+./sysdeps/posix/getcwd.c:	      char *tmp = realloc (path, allocated);
+./sysdeps/posix/getcwd.c:    buf = realloc (path, used);
+./sysdeps/posix/getcwd.c:    /* Either buf was NULL all along, or `realloc' failed but
+./sysdeps/posix/getaddrinfo.c:		      char *newp = realloc (malloc_tmpbuf ? tmpbuf : NULL,
+./sysdeps/posix/getaddrinfo.c:			  char *newp = realloc (malloc_tmpbuf ? tmpbuf : NULL,
+./sysdeps/posix/getaddrinfo.c:			char *newp = realloc (malloc_tmpbuf2 ? tmpbuf2 : NULL,
+./sysdeps/posix/sprofil.c:    r = realloc (prof_info.region, (prof_info.num_regions + 1) * sizeof (*r));
+./sysdeps/pthread/aio_misc.c:	    realloc (pool, new_max_size * sizeof (struct requestlist *));
+./sysdeps/mach/hurd/getcwd.c:		  buf = realloc (file_name, size);
+./sysdeps/mach/hurd/brk.c:	  /* Now reallocate it with no access allowed.  */
+./sysdeps/unix/grantpt.c:	new_buf = (char *) realloc (buf, buf_len);
+./sysdeps/unix/sysv/linux/i386/scandir64.c:	      new = (struct __old_dirent64 **) realloc (v,
+./sysdeps/unix/sysv/linux/i386/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/i386/nptl/localplt.data:libc.so: realloc
+./sysdeps/unix/sysv/linux/i386/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/i386/nptl/libc.abilist: __realloc_hook D 0x4
+./sysdeps/unix/sysv/linux/i386/nptl/libc.abilist: realloc F
+./sysdeps/unix/sysv/linux/getcwd.c:	buf = realloc (path, (size_t) retval);
+./sysdeps/unix/sysv/linux/getcwd.c:	/* Either buf was NULL all along, or `realloc' failed but
+./sysdeps/unix/sysv/linux/x86_64/x32/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/x86_64/x32/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/x86_64/x32/nptl/libc.abilist: __realloc_hook D 0x4
+./sysdeps/unix/sysv/linux/x86_64/x32/nptl/libc.abilist: realloc F
+./sysdeps/unix/sysv/linux/x86_64/64/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/x86_64/64/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/x86_64/64/nptl/libc.abilist: __realloc_hook D 0x8
+./sysdeps/unix/sysv/linux/x86_64/64/nptl/libc.abilist: realloc F
+./sysdeps/unix/sysv/linux/sparc/bits/resource.h:       a page from the list of pages awaiting reallocation.  */
+./sysdeps/unix/sysv/linux/sparc/sparc64/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/sparc/sparc64/nptl/localplt.data:libc.so: realloc
+./sysdeps/unix/sysv/linux/sparc/sparc64/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/sparc/sparc64/nptl/libc.abilist: __realloc_hook D 0x8
+./sysdeps/unix/sysv/linux/sparc/sparc64/nptl/libc.abilist: realloc F
+./sysdeps/unix/sysv/linux/sparc/sparc32/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/sparc/sparc32/nptl/localplt.data:libc.so: realloc
+./sysdeps/unix/sysv/linux/sparc/sparc32/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/sparc/sparc32/nptl/libc.abilist: __realloc_hook D 0x4
+./sysdeps/unix/sysv/linux/sparc/sparc32/nptl/libc.abilist: realloc F
+./sysdeps/unix/sysv/linux/ifreq.c:  void *newp = realloc (ifc.ifc_buf, ifc.ifc_len);
+./sysdeps/unix/sysv/linux/ifreq.c:  *ifreqs = realloc (ifc.ifc_buf, nifs * sizeof (struct ifreq));
+./sysdeps/unix/sysv/linux/bits/resource.h:       a page from the list of pages awaiting reallocation.  */
+./sysdeps/unix/sysv/linux/powerpc/powerpc64/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/powerpc/powerpc64/nptl/localplt.data:libc.so: realloc
+./sysdeps/unix/sysv/linux/powerpc/powerpc64/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/powerpc/powerpc64/nptl/libc.abilist: __realloc_hook D 0x8
+./sysdeps/unix/sysv/linux/powerpc/powerpc64/nptl/libc.abilist: realloc F
+./sysdeps/unix/sysv/linux/powerpc/powerpc32/fpu/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/powerpc/powerpc32/fpu/nptl/localplt.data:libc.so: realloc
+./sysdeps/unix/sysv/linux/powerpc/powerpc32/fpu/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/powerpc/powerpc32/fpu/nptl/libc.abilist: __realloc_hook D 0x4
+./sysdeps/unix/sysv/linux/powerpc/powerpc32/fpu/nptl/libc.abilist: realloc F
+./sysdeps/unix/sysv/linux/sh/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/sh/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/sh/nptl/libc.abilist: __realloc_hook D 0x4
+./sysdeps/unix/sysv/linux/sh/nptl/libc.abilist: realloc F
+./sysdeps/unix/sysv/linux/getlogin_r.c:	char *newp = realloc (use_malloc ? buf : NULL, buflen);
+./sysdeps/unix/sysv/linux/s390/s390-64/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/s390/s390-64/nptl/localplt.data:libc.so: realloc
+./sysdeps/unix/sysv/linux/s390/s390-64/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/s390/s390-64/nptl/libc.abilist: __realloc_hook D 0x8
+./sysdeps/unix/sysv/linux/s390/s390-64/nptl/libc.abilist: realloc F
+./sysdeps/unix/sysv/linux/s390/s390-32/nptl/ld.abilist: realloc F
+./sysdeps/unix/sysv/linux/s390/s390-32/nptl/localplt.data:libc.so: realloc
+./sysdeps/unix/sysv/linux/s390/s390-32/nptl/libc.abilist: __libc_realloc F
+./sysdeps/unix/sysv/linux/s390/s390-32/nptl/libc.abilist: __realloc_hook D 0x4
+./sysdeps/unix/sysv/linux/s390/s390-32/nptl/libc.abilist: realloc F
+./sysdeps/generic/localplt.data:libc.so: realloc
+./locale/programs/xmalloc.c:VOID *xrealloc (VOID *p, size_t n) __THROW;
+./locale/programs/xmalloc.c:VOID *realloc ();
+./locale/programs/xmalloc.c:xrealloc (p, n)
+./locale/programs/xmalloc.c:  p = realloc (p, n);
+./locale/programs/ld-monetary.c:		      grouping = xrealloc (grouping, max);
+./locale/programs/ld-monetary.c:		  monetary->mon_grouping = xrealloc (grouping, act);
+./locale/programs/ld-time.c:		  time->era = xrealloc (time->era,
+./locale/programs/ld-time.c:		  time->wera = xrealloc (time->wera,
+./locale/programs/ld-numeric.c:		      grouping = xrealloc (grouping, max);
+./locale/programs/ld-numeric.c:	      numeric->grouping = xrealloc (grouping, act);
+./locale/programs/ld-ctype.c:/* These are the extra bits not in wctype.h since these are not preallocated
+./locale/programs/ld-ctype.c:	    xrealloc (ctype->charnames,
+./locale/programs/ld-ctype.c:	    (uint32_t *) xrealloc (*table, *max * sizeof (uint32_t));
+./locale/programs/ld-ctype.c:		  ctype->mbdigits = xrealloc (ctype->mbdigits,
+./locale/programs/ld-ctype.c:		  ctype->wcdigits = xrealloc (ctype->wcdigits,
+./locale/programs/ld-ctype.c:		ctype->mbdigits = xrealloc (ctype->mbdigits,
+./locale/programs/ld-ctype.c:		ctype->wcdigits = xrealloc (ctype->wcdigits,
+./locale/programs/ld-ctype.c:		  ctype->mbdigits = xrealloc (ctype->mbdigits,
+./locale/programs/ld-ctype.c:		  ctype->wcdigits = xrealloc (ctype->wcdigits,
+./locale/programs/ld-ctype.c:			  ctype->mbdigits = xrealloc (ctype->mbdigits,
+./locale/programs/ld-ctype.c:			  ctype->wcdigits = xrealloc (ctype->wcdigits,
+./locale/programs/ld-ctype.c:	  t->level1 = (uint32_t *) xrealloc ((char *) t->level1,
+./locale/programs/ld-ctype.c:	  t->level2 = (uint32_t *) xrealloc ((char *) t->level2,
+./locale/programs/ld-ctype.c:	  t->level3 = (uint32_t *) xrealloc ((char *) t->level3,
+./locale/programs/locfile.c:	  elems = (const char **) xrealloc ((char *) elems,
+./locale/programs/3level.h:	  t->level1 = (uint32_t *) xrealloc ((char *) t->level1,
+./locale/programs/3level.h:	  t->level2 = (uint32_t *) xrealloc ((char *) t->level2,
+./locale/programs/3level.h:	  t->level3 = (ELEMENT *) xrealloc ((char *) t->level3,
+./locale/programs/ld-collate.c:		  rules = (enum coll_sort_rule *) xrealloc (rules,
+./locale/programs/ld-collate.c:      rules = (enum coll_sort_rule *) xrealloc (rules,
+./locale/programs/linereader.c:	  buf = xrealloc (buf, bufmax);					      \
+./locale/programs/linereader.c:	  buf = xrealloc (buf, bufmax);					      \
+./locale/programs/linereader.c:	  buf2 = xrealloc (buf2, buf2max * 4);				      \
+./locale/programs/linereader.c:      buf = xrealloc (buf, bufact + 1);
+./locale/programs/linereader.c:      buf = xrealloc (buf, bufact + 1);
+./locale/programs/linereader.c:	  lr->token.val.str.startwc = xrealloc (buf2,
+./locale/programs/linereader.c:  lr->token.val.str.startmb = xrealloc (buf, bufact);
+./locale/programs/charmap-dir.c:          aliases = (char **) xrealloc (aliases,
+./locale/loadarchive.c:   that has been preallocated in the file, so our mapping may not be
+./stdlib/stdlib.h:/* __attribute_malloc__ is not used, because if realloc returns
+./stdlib/stdlib.h:extern void *realloc (void *__ptr, size_t __size)
+./stdlib/stdlib.h:/* Free a block allocated by `malloc', `realloc' or `calloc'.  */
+./stdlib/gmp-impl.h:void *realloc (void *, size_t);
+./stdlib/gmp-impl.h:extern void *	(*_mp_reallocate_func) (void *, size_t, size_t);
+./stdlib/gmp-impl.h:void *_mp_default_reallocate (void *, size_t, size_t);
+./stdlib/gmp-impl.h:void *realloc ();
+./stdlib/gmp-impl.h:extern void *	(*_mp_reallocate_func) ();
+./stdlib/gmp-impl.h:void *_mp_default_reallocate ();
+./stdlib/setenv.c:      new_environ = (char **) realloc (last_environ,
+./stdlib/canonicalize.c:	      new_rpath = (char *) realloc (rpath, new_size);
+./stdlib/isomac.c:  "puts", "putwc", "putwchar", "qsort", "raise", "rand", "realloc",
+./stdlib/isomac.c:	  result = realloc (result, result_max * sizeof (char **));
+./stdlib/isomac.c:      result = realloc (result, result_max * sizeof (char **));
+./stdlib/gmp.h:void *_mpz_realloc _PROTO ((mpz_ptr, mp_size_t));
+./crypt/sha256-crypt.c:      char *new_buffer = (char *) realloc (buffer, needed);
+./crypt/sha512-crypt.c:      char *new_buffer = (char *) realloc (buffer, needed);
+./crypt/md5-crypt.c:      char *new_buffer = (char *) realloc (buffer, needed);
+./ports/sysdeps/mips/dl-lookup.c:	     `realloc'.  */
+./ports/sysdeps/unix/sysv/linux/arm/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/arm/nptl/localplt.data:libc.so: realloc
+./ports/sysdeps/unix/sysv/linux/arm/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/arm/nptl/libc.abilist: __realloc_hook D 0x4
+./ports/sysdeps/unix/sysv/linux/arm/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/tile/tilepro/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/tile/tilepro/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/tile/tilepro/nptl/libc.abilist: __realloc_hook D 0x4
+./ports/sysdeps/unix/sysv/linux/tile/tilepro/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/tile/tilegx/tilegx32/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/tile/tilegx/tilegx32/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/tile/tilegx/tilegx32/nptl/libc.abilist: __realloc_hook D 0x4
+./ports/sysdeps/unix/sysv/linux/tile/tilegx/tilegx32/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/tile/tilegx/tilegx64/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/tile/tilegx/tilegx64/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/tile/tilegx/tilegx64/nptl/libc.abilist: __realloc_hook D 0x8
+./ports/sysdeps/unix/sysv/linux/tile/tilegx/tilegx64/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/ia64/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/ia64/nptl/localplt.data:libc.so: realloc
+./ports/sysdeps/unix/sysv/linux/ia64/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/ia64/nptl/libc.abilist: __realloc_hook D 0x8
+./ports/sysdeps/unix/sysv/linux/ia64/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/nptl/localplt.data:libc.so: realloc
+./ports/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/nptl/libc.abilist: __realloc_hook D 0x4
+./ports/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/m68k/m680x0/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/m68k/m680x0/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/m68k/m680x0/nptl/libc.abilist: __realloc_hook D 0x4
+./ports/sysdeps/unix/sysv/linux/m68k/m680x0/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/m68k/coldfire/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/m68k/coldfire/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/m68k/coldfire/nptl/libc.abilist: __realloc_hook D 0x4
+./ports/sysdeps/unix/sysv/linux/m68k/coldfire/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/m68k/nptl/localplt.data:libc.so: realloc
+./ports/sysdeps/unix/sysv/linux/mips/mips64/n64/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/mips/mips64/n64/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/mips/mips64/n64/nptl/libc.abilist: __realloc_hook D 0x8
+./ports/sysdeps/unix/sysv/linux/mips/mips64/n64/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/mips/mips64/n32/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/mips/mips64/n32/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/mips/mips64/n32/nptl/libc.abilist: __realloc_hook D 0x4
+./ports/sysdeps/unix/sysv/linux/mips/mips64/n32/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/mips/bits/resource.h:       a page from the list of pages awaiting reallocation.  */
+./ports/sysdeps/unix/sysv/linux/mips/mips32/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/mips/mips32/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/mips/mips32/nptl/libc.abilist: __realloc_hook D 0x4
+./ports/sysdeps/unix/sysv/linux/mips/mips32/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/alpha/bits/resource.h:       a page from the list of pages awaiting reallocation.  */
+./ports/sysdeps/unix/sysv/linux/alpha/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/alpha/nptl/localplt.data:libc.so: realloc ?
+./ports/sysdeps/unix/sysv/linux/alpha/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/alpha/nptl/libc.abilist: __realloc_hook D 0x8
+./ports/sysdeps/unix/sysv/linux/alpha/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/aarch64/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/aarch64/nptl/localplt.data:libc.so: realloc
+./ports/sysdeps/unix/sysv/linux/aarch64/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/aarch64/nptl/libc.abilist: __realloc_hook D 0x8
+./ports/sysdeps/unix/sysv/linux/aarch64/nptl/libc.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/microblaze/nptl/ld.abilist: realloc F
+./ports/sysdeps/unix/sysv/linux/microblaze/nptl/localplt.data:libc.so: realloc
+./ports/sysdeps/unix/sysv/linux/microblaze/nptl/libc.abilist: __libc_realloc F
+./ports/sysdeps/unix/sysv/linux/microblaze/nptl/libc.abilist: __realloc_hook D 0x4
+./ports/sysdeps/unix/sysv/linux/microblaze/nptl/libc.abilist: realloc F
+./ChangeLog.12:	(malloc, realloc, calloc, free): If not yet initialized,
+./ChangeLog.12:	when reallocating the error strings.
+./ChangeLog.12:	(chunk_realloc): Use it instead of MALLOC_COPY if source and
+./ChangeLog.15:	* malloc/malloc.c (_int_realloc): Add checks for corrupted memory.
+./ChangeLog.15:	* malloc/malloc.c (_int_realloc): Remove unnecessary tests for
+./ChangeLog.15:	(_int_realloc): Call _int_free only if memory parameter is not NULL.
+./ChangeLog.15:	whether to realloc or not.
+./ChangeLog.15:	* crypt/md5-crypt.c (__md5_crypt): Only update buflen if realloc
+./ChangeLog.15:	fails.  Avoid memory leak if realloc fails.
+./ChangeLog.15:	(_hurd_canonicalize_directory_name_intern): Only realloc when
+./ChangeLog.15:	realloc cannot fail.
+./ChangeLog.15:	explaining use of realloc.
+./ChangeLog.15:	* misc/error.c (error_tail): Don't leak upon realloc failure.
+./hurd/hurdstartup.c:   port, and the base address and size of the preallocated stack.
+./hurd/hurdmalloc.h:   will use the internal malloc routines _hurd_{malloc,realloc,free}
+./hurd/hurdmalloc.h:extern void *_hurd_realloc (void *, size_t);
+./hurd/hurdmalloc.h:#define realloc	_hurd_realloc
+./hurd/alloc-fd.c:	    new = realloc (_hurd_dtable, size * sizeof (*_hurd_dtable));
+./hurd/hurdmalloc.c: *	Changed realloc() to copy min(old size, new size) bytes.
+./hurd/hurdmalloc.c:realloc(old_base, new_size)
+./hurd/hurd/fd.h:/* Close a file descriptor, making it available for future reallocation.  */
+./hurd/hurdsock.c:      file_t *new = realloc (servers, (domain + 1) * sizeof (file_t));
+./iconv/iconv_charmap.c:	new_inbuf = (char *) realloc (inbuf, maxlen + 32768);
+./iconv/iconvconfig.c:      alias_list = (struct alias **) xrealloc (alias_list,
+./iconv/iconvconfig.c:      module_list = (struct module **) xrealloc (module_list,
+./iconv/iconv_prog.c:	new_inbuf = (char *) realloc (inbuf, maxlen + 32768);
+./ChangeLog.13:	(re_string_realloc_buffers): Likewise.
+./ChangeLog.13:	(re_string_realloc_buffers): Likewise.
+./ChangeLog.13:	__malloc_hook, __realloc_hook, __memalign_hook,
+./ChangeLog.13:	* sysdeps/generic/dl-tls.c (__tls_get_addr): When reallocating the
+./ChangeLog.13:	instead of calling realloc normally.
+./ChangeLog.13:	* malloc/hooks.c (realloc_check): If mremap succeeds actually use
+./ChangeLog.13:	* posix/regex_internal.c: (re_string_realloc_buffers): Change
+./ChangeLog.13:	(re_string_realloc_buffers): New function.
+./ChangeLog.13:	Use realloc if too large.
+./ChangeLog.13:	* elf/dl-minimal.c (realloc): Handle NULL for first parameter
+./ChangeLog.13:	* malloc/memusage.c (realloc): Don't count already allocated
+./ChangeLog.13:	(realloc): Replace bcopy with memcpy.
+./localedata/xfrm-test.c:	  strings = (struct lines *) realloc (strings,
+./localedata/collate-test.c:	  strings = (struct lines *) realloc (strings,
+./include/programs/xmalloc.h:extern void *xrealloc (void *o, size_t n)
+./ChangeLog.2:	* malloc/realloc.c [MEMMOVE_MISSING]: Test this to use safe_bcopy.
+./ChangeLog.2:	* malloc/realloc.c: Call _free_internal instead of free in most places.
+./ChangeLog.2:	* malloc/mcheck.c (reallochook): Set HDR->magic to MAGICWORD.
+./ChangeLog.2:	* malloc/realloc.c (memmove): Swap the args when calling safe_bcopy.
+./ChangeLog.2:	* malloc/malloc.c [_LIBC] (_malloc, _free, _realloc): Define these
+./ChangeLog.2:	functions to just call malloc, free, and realloc, respectively.
+./ChangeLog.2:	* malloc/realloc.c [!_LIBC && !STDC_HEADERS && !USG] (safe_bcopy):
+./ChangeLog.2:	* malloc/realloc.c (realloc): When malloc returns NULL, handle the
+./ChangeLog.2:	* posix/glob.c (my_realloc): Cast result of malloc/realloc to (char *).
+./ChangeLog.2:	* dirent/scandir.c (scandir): Don't keep using V after realloc'ing
+./NEWS:  any time (checks are normally done only when you call `free' or `realloc'
+./NEWS:  you can pass to `realloc' or `free'.  The behavior is undefined if
+./inet/ifreq.c:      void *newp = realloc (ifc.ifc_buf, ifc.ifc_len);
+./inet/ifreq.c:  *ifreqs = realloc (ifc.ifc_buf, nifs * sizeof (struct ifreq));
+./pwd/fgetpwent.c:      new_buf = realloc (buffer, buffer_size);
+./grp/fgetgrent.c:      new_buf = realloc (buffer, buffer_size);
+./grp/compat-initgroups.c:	      char *newbuf = realloc (use_malloc ? tmpbuf : NULL, buflen);
+./grp/compat-initgroups.c:			newgroups = realloc (groups,
+./ChangeLog:	(realloc): Likewise.
+./ChangeLog:	redundant variable declarations and reallocation of buffer when
+./ChangeLog:	(__realloc_hook): Likewise.
+./ChangeLog:	(realloc_hook_ini): Likewise.
+./ChangeLog:	(realloc_hook_ini): Likewise.
+./ChangeLog:	(__realloc_hook): Likewise.
+./ChangeLog:	(__libc_realloc): Likewise.
+./ChangeLog:	(old_realloc_hook): Likewise.
+./ChangeLog:	(reallochook): Likewise.
+./ChangeLog:	(tr_old_realloc_hook): Likewise.
+./ChangeLog:	(tr_reallochook): Likewise.
+./ChangeLog:	(xmalloc, xcalloc, xrealloc, xstrdup): Don't declare them.
+./ChangeLog:	(realloc_hook_ini): Likewise.
+./ChangeLog:	* malloc/mtrace.c (tr_reallochook): If realloc returns NULL when
+./ChangeLog:	the malloc attribute to xmalloc, xcalloc, xrealloc, and xstrdup.
+./ChangeLog:	(xmalloc, xcalloc, xrealloc): Move declarations here.
+./ChangeLog:	realloc.
+./ChangeLog:	(tr_reallochook): Likewise.
+./ChangeLog:	problem in reallocation in last patch.
+./shadow/fgetspent.c:      new_buf = realloc (buffer, buffer_size);
+./shadow/sgetspent.c:      new_buf = realloc (buffer, buffer_size);
+./nis/nis_subr.c:		  nis_name *newp = realloc (getnames,
+./nis/nis_subr.c:	      nis_name *newp = realloc (getnames,
+./nis/nis_findserv.c:		new_pings = realloc (pings, sizeof (struct findserv_req) *
+./nis/nss_nisplus/nisplus-initgroups.c:	  gid_t *newgroups = realloc (groups, newsize * sizeof (*groups));
+./nis/nss_compat/compat-spwd.c:	  tmp = realloc (ent->blacklist.data, ent->blacklist.size);
+./nis/nss_compat/compat-pwd.c:	  tmp = realloc (ent->blacklist.data, ent->blacklist.size);
+./nis/nss_compat/compat-initgroups.c:      newgroups = realloc (groups, newsize * sizeof (*groups));
+./nis/nss_compat/compat-initgroups.c:                          char *newbuf = realloc (use_malloc ? tmpbuf : NULL, tmplen);
+./nis/nss_compat/compat-initgroups.c:            char *newbuf = realloc (use_malloc ? tmpbuf : NULL, buflen);
+./nis/nss_compat/compat-initgroups.c:	  tmp = realloc (ent->blacklist.data, ent->blacklist.size);
+./nis/nss_compat/compat-grp.c:	  tmp = realloc (ent->blacklist.data, ent->blacklist.size);
+./nis/nis_addmember.c:	= realloc (NIS_RES_OBJECT (res)->GR_data.gr_members.gr_members_val,
+./nis/nis_removemember.c:      /* There is no need to reallocate the gr_members_val array.  We
+./nis/nis_call.c:	    = realloc (ckey_cache, size * sizeof (*ckey_cache));
+./nis/nis_table.c:	  nis_attr *newp = realloc (search_val, size * sizeof (nis_attr));
+./nis/nis_table.c:		      = realloc (NIS_RES_OBJECT (allres),
+./nis/nss_nis/nis-initgroups.c:	  gid_t *newgroups = realloc (groups, newsize * sizeof (*groups));
+./nis/nss_nis/nis-initgroups.c:		    newgroups = realloc (groups, newsize * sizeof (*groups));
+./ChangeLog.17:	* elf/chroot_canon.c (chroot_canon): Use xmalloc and xrealloc.
+./ChangeLog.17:	* posix/regexec.c (extend_buffers): Avoid overflow in realloc
+./ChangeLog.17:	* posix/regex_internal.c (re_string_realloc_buffers):
+./ChangeLog.17:	Update size when reallocating.
+./ChangeLog.17:	* malloc/malloc.c (_int_realloc): Add parameter with old block
+./ChangeLog.17:	* malloc/hooks.c (realloc_check): Adjust _int_realloc call.
+./ChangeLog.17:	(_int_realloc): Likewise.  Third argument is now padded size
+./ChangeLog.17:	* malloc/hooks.c: Change all callers to _int_free and _int_realloc.
+./ChangeLog.17:	reallocating and free the old with _dl_scope_free.  Adjust
+./ChangeLog.17:	* stdlib/stdlib.h (realloc): Remove __attribute_malloc__.
+./ChangeLog.17:	* malloc/malloc.h (realloc): Likewise.
+./ChangeLog.17:	* malloc/mcheck.c (reallochook): If size==0, free the block.
+./ChangeLog.17:	reallocate the buffer, instead fail for MSG_TRUNC or for EBUSY
+./ChangeLog.17:	memory reallocation.
+./ChangeLog.17:	* malloc/memusage.c: Handle realloc with new size of zero and
+./ChangeLog.17:	(dest): Write out more realloc statistics.
+./ChangeLog.17:	* sunrpc/svc_run.c (svc_run): Set my_pollfd to new_pollfd if realloc
+./ChangeLog.17:	* elf/dl-minimal.c (realloc): Optimize last patch.
+./ChangeLog.17:	* elf/dl-minimal.c (realloc): Let malloc() return a new pointer,
+./ChangeLog.17:	Avoid memory leak in case realloc fails.  Simplification for
+./ChangeLog.17:	* posix/wordexp.c (w_addword): Free word if realloc fails and it
+./ChangeLog.17:	__libc_res_nsend might reallocate the buffer for the answer.  In
+./dirent/scandirat.c:	      new = (DIRENT_TYPE **) realloc (v, vsize * sizeof (*v));
+./nptl/sysdeps/unix/sysv/linux/pthread_attr_setaffinity.c:	  void *newp = (cpu_set_t *) realloc (iattr->cpuset, cpusetsize);
+./nptl/pthread_getattr_np.c:	  void *newp = realloc (cpuset, size);
+./nptl/pthread_setattr_default_np.c:      cpu_set_t *newp = realloc (__default_pthread_attr.cpuset,
+./nptl/ChangeLog:	If realloc fails, break out of the loop.
+./ChangeLog.3:	* malloc/realloc.c (realloc): When shrinking a block by splitting
+./io/ftw.c:		  newp = (char *) realloc (buf, bufsize);
+./io/ftw.c:	  data->dirstreams[data->actdir]->content = realloc (buf, actsize);
+./io/ftw.c:      newp = (char *) realloc (data->dirbuf, data->dirbufsize);
+./io/fts.c:			/* Did realloc() change the pointer? */
+./io/fts.c:	 * If realloc() changed the address of the path, adjust the
+./io/fts.c:	 * 40 so don't realloc one entry at a time.
+./io/fts.c:		if ((a = realloc(sp->fts_array,
+./io/fts.c: * plus 256 bytes so don't realloc the path 2 bytes at a time.
+./io/fts.c:	p = realloc(sp->fts_path, sp->fts_pathlen);
+./io/fts.c: * When the path is realloc'd, have to fix all of the pointers in structures
+./ChangeLog.9:	realloc.  Minor optimizations.
+./ChangeLog.9:	does not use any of malloc/realloc/free anymore.  Include
+./ChangeLog.9:	* malloc/mtrace.c (tr_reallochook): Produce better output for real
+./ChangeLog.9:	reallocation case.
+./ChangeLog.9:	(dl_open_worker): Use realloc, not malloc to resize array.
+./ChangeLog.9:	store result of realloc instead of using BUF.
+./ChangeLog.9:	* malloc/malloc.c (malloc_hook_ini): Don't overwrite realloc and
+./ChangeLog.9:	(realloc_hook_ini): Don't overwrite memalign hook.
+./ChangeLog.9:	* malloc/malloc.c (free_check, realloc_check): Don't cast to long for
+./conform/data/stdlib.h-data:function {void*} realloc (void*, size_t)
+./catgets/gencat.c:		  wbuf = (wchar_t *) xrealloc (wbuf, wbufsize);
